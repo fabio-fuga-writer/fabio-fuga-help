@@ -5,106 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Call for Help - 90 Days of Darkness</title>
-  <style>
-    /* ===== Reset geral ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-
-    body {
-      background-color: #111827; /* fundo azul grafite */
-      color: #e5e7eb;
-      line-height: 1.6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1.5rem;
-    }
-
-    .container {
-      background-color: #1f2937; /* bloco cinza-azulado */
-      padding: 2rem;
-      border-radius: 16px;
-      max-width: 600px;
-      width: 100%;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-      text-align: center;
-    }
-
-    img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 20px rgba(250, 204, 21, 0.4); /* brilho suave dourado */
-    }
-
-    h1 {
-      color: #facc15; /* dourado suave */
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #f3f4f6;
-      margin-bottom: 1.2rem;
-    }
-
-    a.button {
-      display: inline-block;
-      background-color: #facc15;
-      color: #111827;
-      text-decoration: none;
-      padding: 0.8rem 1.4rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.2s ease-in-out;
-    }
-
-    a.button:hover {
-      background-color: #eab308;
-      transform: scale(1.03);
-    }
-
-    .links {
-      margin-top: 1.5rem;
-    }
-
-    .links a {
-      display: block;
-      color: #60a5fa;
-      text-decoration: none;
-      margin: 0.3rem 0;
-      transition: color 0.2s ease;
-    }
-
-    .links a:hover {
-      color: #93c5fd;
-    }
-
-    footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 1.5rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  <!-- Link para o arquivo CSS externo para organização e boas práticas -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
+    <!-- A imagem deve ser colocada no mesmo diretório ou em um subdiretório como 'assets/' -->
     <img src="ebook_cover_90_days_of_darkness.png" alt="90 Days of Darkness eBook Cover">
     
     <h1>A Call for Help</h1>
@@ -121,8 +27,11 @@
     <p>Thank you in advance.<br><strong>Fábio Fuga</strong></p>
 
     <div class="links">
+      <!-- Botão principal para a compra do e-book -->
       <a class="button" href="https://ko-fi.com/s/67d00a6b62" target="_blank">📘 Get the E-book</a>
+      <!-- Links secundários -->
       <a href="https://newyorkbasements.blogspot.com/" target="_blank">Visit my blog</a>
+      <!-- É uma boa prática usar um link mailto para o PayPal, mas o texto deve ser claro -->
       <a href="mailto:fugafabio1@gmail.com">Donate via PayPal: fugafabio1@gmail.com</a>
     </div>
 
@@ -132,4 +41,3 @@
   </div>
 </body>
 </html>
-
