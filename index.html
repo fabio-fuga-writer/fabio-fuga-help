@@ -1,411 +1,339 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Fabio Fuga - Writer in Medical Emergency</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 0;
-            color: white;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        h2 {
-            color: #1e3c72;
-            margin-bottom: 20px;
-            font-size: 2em;
-            border-bottom: 3px solid #2a5298;
-            padding-bottom: 10px;
-        }
-        
-        .progress-container {
-            background: #e0e0e0;
-            border-radius: 25px;
-            height: 40px;
-            margin: 30px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .progress-bar {
-            background: linear-gradient(90deg, #2a5298, #4a7bc8);
-            height: 100%;
-            width: 0%;
-            transition: width 1s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .progress-text {
-            text-align: center;
-            margin: 15px 0;
-            font-size: 1.1em;
-        }
-        
-        .goal-amount {
-            font-size: 2em;
-            color: #1e3c72;
-            font-weight: bold;
-        }
-        
-        .urgent-banner {
-            background: #ff6b6b;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
-            margin: 20px 0;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
-        .story {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin: 20px 0;
-        }
-        
-        .story p {
-            margin-bottom: 15px;
-        }
-        
-        .quote {
-            font-style: italic;
-            padding: 20px;
-            background: #f5f5f5;
-            border-left: 4px solid #2a5298;
-            margin: 30px 0;
-            font-size: 1.1em;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #2a5298, #1e3c72);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .cta-section h2 {
-            color: white;
-            border: none;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 30px 0;
-        }
-        
-        .btn {
-            padding: 15px 40px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-donate {
-            background: #ffd700;
-            color: #1e3c72;
-        }
-        
-        .btn-donate:hover {
-            background: #ffed4e;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
-        }
-        
-        .btn-book {
-            background: white;
-            color: #1e3c72;
-        }
-        
-        .btn-book:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
-        }
-        
-        .book-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            margin: 30px 0;
-        }
-        
-        .book-cover {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            padding: 40px;
-            border-radius: 15px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .book-cover h3 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        
-        .book-cover p {
-            font-style: italic;
-            opacity: 0.8;
-        }
-        
-        .book-info {
-            padding: 20px;
-        }
-        
-        .price {
-            font-size: 2em;
-            color: #2a5298;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        
-        .share-section {
-            text-align: center;
-            padding: 30px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
-        
-        .share-text {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #555;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: white;
-            font-size: 0.9em;
-        }
-        
-        .contact {
-            margin: 20px 0;
-        }
-        
-        .blog-link {
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .blog-link:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            .book-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .button-group {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-            
-            .card {
-                padding: 20px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Call for Help — 90 Days of Darkness</title>
+
+  <style>
+    :root{
+      --bg1:#0f1724;
+      --bg2:#12213a;
+      --accent:#ffd700;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --goal-color:#1e3c72;
+      --donate:#ff6b6b;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#111827;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:940px;
+    }
+
+    header{
+      text-align:center;
+      color:var(--card);
+      margin-bottom:20px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:14px;
+      padding:28px;
+      box-shadow:0 12px 40px rgba(2,6,23,0.5);
+    }
+
+    .top{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .cover{
+      flex: 0 0 260px;
+      width:260px;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 8px 30px rgba(0,0,0,0.35);
+      background:#f3f3f3;
+    }
+
+    .cover img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .meta{
+      flex:1;
+      min-width:220px;
+    }
+
+    h1{
+      font-size:1.6rem;
+      margin:0 0 8px 0;
+      color:var(--goal-color);
+    }
+
+    .subtitle{
+      margin:0 0 12px 0;
+      color:var(--muted);
+    }
+
+    .price{
+      font-size:1.25rem;
+      font-weight:bold;
+      color:var(--goal-color);
+      margin-bottom:10px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      display:inline-block;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-kofi{
+      background:#29abe0;
+      color:white;
+    }
+
+    .btn-buy{
+      background:var(--accent);
+      color:var(--goal-color);
+    }
+
+    .info{
+      margin-top:18px;
+      font-size:0.98rem;
+      line-height:1.55;
+      color:#111827;
+    }
+
+    .goal{
+      margin-top:22px;
+      background:#f8fafc;
+      border-radius:10px;
+      padding:18px;
+    }
+
+    .progress-row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .progress-text{
+      min-width:220px;
+    }
+
+    .progress-bar{
+      flex:1;
+      background:#e6e6e6;
+      border-radius:999px;
+      height:18px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .progress-bar > span{
+      display:block;
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--goal-color),#4a7bc8);
+      transition:width .9s ease;
+      text-align:center;
+      color:white;
+      font-weight:700;
+      font-size:12px;
+      line-height:18px;
+    }
+
+    .goal-amount{
+      font-weight:800;
+      color:var(--goal-color);
+    }
+
+    .story{
+      margin-top:22px;
+      font-size:1rem;
+      line-height:1.7;
+      color:#111827;
+    }
+
+    blockquote{
+      margin:16px 0;
+      padding:12px 16px;
+      background:#f3f4f6;
+      border-left:4px solid var(--goal-color);
+      font-style:italic;
+    }
+
+    .share{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .small{
+      font-size:0.92rem;
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:18px;
+      text-align:center;
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+
+    @media(max-width:720px){
+      .top{flex-direction:column; align-items:center}
+      .cover{width:210px; flex-basis:210px}
+      .meta{text-align:center}
+      .progress-text{min-width:140px}
+    }
+  </style>
 </head>
+
 <body>
+  <div class="wrap">
     <header>
-        <div class="container">
-            <h1>Help Fabio Fuga Continue His Journey</h1>
-            <p class="subtitle">Writer | Survivor | Creator of "90 Days of Darkness"</p>
-        </div>
+      <h1>A Call for Help</h1>
+      <p class="subtitle">Ebook fundraiser for zygomatic implant surgery — Fabio Fuga</p>
     </header>
 
-    <div class="container">
-        <div class="urgent-banner">
-            ⏰ URGENT MEDICAL EMERGENCY - 90 DAYS TO REACH GOAL
+    <main class="card" role="main" aria-labelledby="postTitle">
+      <div class="top">
+        <div class="cover" aria-hidden="true">
+          <!-- Substitua o src se hospedar a imagem em outro local -->
+          <img src="/mnt/data/ebook_cover_90_days_of_darkness.png" alt="Cover: 90 Days of Darkness">
         </div>
 
-        <div class="card">
-            <h2>🎯 Fundraising Goal</h2>
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar">$0</div>
-            </div>
-            <div class="progress-text">
-                <span id="currentAmount">$0</span> raised of <span class="goal-amount">$30,000</span> goal
-            </div>
-        </div>
+        <div class="meta">
+          <h2 id="postTitle" style="margin-top:0">Hi, I'm Fábio.</h2>
+          <p class="subtitle">Author of <strong>“90 Days of Darkness”</strong></p>
 
-        <div class="card">
-            <h2>📖 My Story</h2>
-            <div class="story">
-                <p>I am Fabio Fuga, a Brazilian writer who just completed "90 Days of Darkness" — a deeply personal book about my journey through severe depression. I wrote it during my darkest moments, documenting 90 days of fighting to survive, finding light in unexpected places: a stray dog named Schrödinger, burnt letters, painted mirrors, and sunflowers growing in cracked pots.</p>
-                
-                <p>Ironically, as I finished writing about survival and healing, I now face an urgent medical emergency requiring $30,000 in treatment. As an independent writer without financial resources, I'm reaching out for help.</p>
-                
-                <div class="quote">
-                    "Depression was not a prison. It was a chemical chrysalis. Now I know the formula for light."
-                    <br>— From "90 Days of Darkness"
-                </div>
-            </div>
-        </div>
+          <p class="price">$10 USD — Digital PDF</p>
 
-        <div class="cta-section">
-            <h2>💝 How You Can Help</h2>
-            <p style="font-size: 1.2em; margin: 20px 0;">Every contribution brings me closer to the treatment I need to continue living and writing.</p>
-            
-            <div class="button-group">
-                <form action="https://www.paypal.com/donate" method="post" target="_blank">
-                    <input type="hidden" name="business" value="fugafabio1@gmail.com">
-                    <input type="hidden" name="item_name" value="Medical Emergency Fund - Fabio Fuga">
-                    <input type="hidden" name="currency_code" value="USD">
-                    <button type="submit" class="btn btn-donate">
-                        🎁 DONATE NOW
-                    </button>
-                </form>
-            </div>
-            
-            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">
-                Secure donation via PayPal
+          <div class="buttons" role="group" aria-label="purchase and support actions">
+            <!-- Link Ko-fi: botão de compra/doação -->
+            <a class="btn btn-kofi" href="https://ko-fi.com/s/67d00a6b62" target="_blank" rel="noopener noreferrer">
+              👉 Buy / Donate on Ko-fi
+            </a>
+
+            <!-- Link direto para compartilhar (exemplo) -->
+            <a class="btn btn-buy" href="https://ko-fi.com/s/67d00a6b62" target="_blank" rel="noopener noreferrer">
+              📘 Get the Ebook ($10)
+            </a>
+          </div>
+
+          <div class="info">
+            <p>
+              I wrote the e-book <strong>"90 Days of Darkness."</strong> More than just a story, it represents an important step in a personal project: raising funds for my zygomatic implant surgery, which will restore my smile and improve my quality of life.
             </p>
+            <p>
+              Each copy costs only <strong>$10</strong>, and my goal is to raise <strong class="goal-amount">$30,000</strong> to cover the procedure. By sharing, donating, or buying the book, you ensure an engaging read and, at the same time, directly participate in this achievement.
+            </p>
+            <blockquote>
+              This isn't charity, but a fair exchange: you receive a work created with dedication, and I get closer to realizing this dream.
+            </blockquote>
+            <p class="small">Thank you in advance. — Fábio Fuga</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="goal" aria-labelledby="goalHeading">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+          <div id="goalHeading">
+            <strong>Fundraising progress</strong>
+            <div class="small">Help reach the $30,000 goal</div>
+          </div>
+
+          <div style="min-width:180px; text-align:right;" class="small">Goal: <span class="goal-amount">$30,000</span></div>
         </div>
 
-        <div class="card">
-            <h2>📚 Support Through My Book</h2>
-            <div class="book-section">
-                <div class="book-cover">
-                    <h3>90 DAYS OF<br>DARKNESS</h3>
-                    <p>A journey through depression</p>
-                </div>
-                <div class="book-info">
-                    <p>Purchase my book and help fund my treatment. Each sale goes directly toward my medical emergency.</p>
-                    <div class="price">$10 USD</div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="fugafabio1@gmail.com">
-                        <input type="hidden" name="item_name" value="90 Days of Darkness - Ebook">
-                        <input type="hidden" name="amount" value="10.00">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <button type="submit" class="btn btn-book">
-                            📖 BUY EBOOK
-                        </button>
-                    </form>
-                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">PDF format delivered via email</p>
-                </div>
-            </div>
+        <div style="margin-top:12px;" class="progress-row">
+          <div class="progress-text small">Raised: <span id="currentAmount">$0</span></div>
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span id="progressBarLabel">0%</span>
+          </div>
         </div>
+      </div>
 
-        <div class="share-section">
-            <h3 style="margin-bottom: 15px;">Can't donate? Please share!</h3>
-            <p class="share-text">Sharing this page is as valuable as a donation.</p>
-            <p style="font-size: 0.9em; color: #888;">Copy this link:</p>
-            <p style="font-weight: bold; color: #2a5298; margin-top: 10px;" id="pageURL">[Your GitHub Pages URL will go here]</p>
+      <section class="story" aria-label="full message">
+        <h3 style="margin-top:22px;">Message</h3>
+        <p>
+          Hi, I'm Fábio. I wrote the e-book "90 Days of Darkness." More than just a story, it represents an important step in a personal project: raising funds for my zygomatic implant surgery, which will restore my smile and improve my quality of life.
+        </p>
+        <p>
+          Each copy costs only $10, and my goal is to raise $30,000 to cover the procedure. By sharing, donating, or buying the book, you ensure an engaging read and, at the same time, directly participate in this achievement.
+        </p>
+        <p>
+          This isn't charity, but a fair exchange: you receive a work created with dedication, and I get closer to realizing this dream. If you could share this idea with others, it would be a huge help in making this goal a reality.
+        </p>
+
+        <div style="margin-top:16px;">
+          <a class="btn btn-kofi" href="https://ko-fi.com/s/67d00a6b62" target="_blank" rel="noopener noreferrer">Buy / Donate on Ko-fi</a>
         </div>
+      </section>
 
-        <div class="card">
-            <h2>✍️ About the Book</h2>
-            <p>"90 Days of Darkness" is not a self-help manual or a heroic tale of overcoming. It's a war diary written in neural trenches, documenting the reality of living with severe depression through art, hallucinations, rituals, and unexpected moments of beauty.</p>
-            
-            <div class="quote">
-                "You will not emerge 'cured.' You will emerge with scars that shimmer like personal constellations. And that will be your greatest trophy."
-            </div>
-        </div>
-    </div>
+      <div class="share" style="margin-top:20px;">
+        <div class="small">Link to share:</div>
+        <div style="font-weight:700; color:var(--goal-color)"><a href="https://ko-fi.com/s/67d00a6b62" target="_blank" rel="noopener noreferrer">https://ko-fi.com/s/67d00a6b62</a></div>
+      </div>
 
-    <footer>
-        <div class="container">
-            <div class="contact">
-                <p><strong>Contact:</strong> fugafabio1@gmail.com</p>
-                <p><strong>Blog:</strong> <a href="https://newyorkbasements.blogspot.com/" class="blog-link" target="_blank">newyorkbasements.blogspot.com</a></p>
-            </div>
-            <p style="margin-top: 30px; opacity: 0.8;">Thank you for your support. Every share, every dollar, every kind word matters.</p>
-            <p style="margin-top: 20px; font-size: 0.8em;">© 2025 Fabio Fuga. All rights reserved.</p>
-        </div>
-    </footer>
+      <footer>
+        <div class="small">© 2025 Fabio Fuga — Thank you for your support</div>
+      </footer>
+    </main>
+  </div>
 
-    <script>
-        function updateProgress(current) {
-            const goal = 30000;
-            const percentage = (current / goal) * 100;
-            const progressBar = document.getElementById('progressBar');
-            const currentAmountEl = document.getElementById('currentAmount');
-            
-            progressBar.style.width = percentage + '%';
-            progressBar.textContent = percentage.toFixed(1) + '%';
-            currentAmountEl.textContent = '$' + current.toLocaleString();
-        }
+  <script>
+    // Atualize aqui o valor levantado (número inteiro), por exemplo: 1250 para $1,250
+    const RAISED_AMOUNT = 0;
 
-        updateProgress(0);
+    function formatMoney(n){
+      return '$' + Number(n).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0});
+    }
 
-        const pageURLElement = document.getElementById('pageURL');
-        if (pageURLElement) {
-            pageURLElement.textContent = window.location.href;
-        }
-    </script>
+    (function initProgress(){
+      const goal = 30000;
+      const current = Number(RAISED_AMOUNT) || 0;
+      const pct = Math.min(100, (current / goal) * 100);
+      const progressBar = document.querySelector('.progress-bar > span');
+      const amountEl = document.getElementById('currentAmount');
+      const label = document.getElementById('progressBarLabel');
+      const progressWrap = document.querySelector('.progress-bar');
+
+      progressBar.style.width = pct + '%';
+      label.textContent = pct.toFixed(1) + '%';
+      amountEl.textContent = formatMoney(current);
+
+      // accessibility
+      progressWrap.setAttribute('aria-valuenow', pct.toFixed(1));
+    })();
+  </script>
 </body>
 </html>
